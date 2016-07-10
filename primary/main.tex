@@ -1,0 +1,36 @@
+\documentclass[class=minimal,border=0pt]{article}
+
+\usepackage[utf8]{inputenc}
+\title{EOS}
+\usepackage{tikz}
+\usepackage{graphics}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{5pt}
+
+\author{Timothy Jones}
+\date{December 2015}
+
+\begin{document}
+
+\begin{tikzpicture}[transform shape,line width=0.2pt]
+\filldraw[black] (-2,0) circle (2pt) node[anchor=east] {\Huge {\bf E}};
+\begin{scope}[scale=0.3]
+
+  \foreach \x in {1,...,16}{%
+    \pgfmathparse{(\x-1)*45+floor(\x/9)*22.5}
+    \node[draw,circle,inner sep=0.25cm] (N-\x) at (\pgfmathresult:5.4cm) [thick] {};
+  } 
+  \foreach \x [count=\xi from 1] in {2,...,16}{%
+    \foreach \y in {\x,...,16}{%
+        \path (N-\xi) edge[-] (N-\y);
+  }
+}
+\end{scope}
+\filldraw[black] (2,0) circle (2pt) node[anchor=west] {\Huge {\bf S}};
+\filldraw[black] (2.75,-2.1) circle (0pt) node[anchor=east] 
+{\small {\Huge [} {{\bf \huge E}OS {\bf \huge O}riginates {\bf \huge S}olutions} {\Huge ]}};
+\end{tikzpicture}
+
+
+\end{document}
