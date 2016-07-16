@@ -1,2 +1,2 @@
 # iana-logo
-LaTeX based logo for organization
+Two logos for organization: LaTeX based and high resolution, transparent png
